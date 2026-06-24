@@ -104,7 +104,7 @@ export default function SwipeDeck({ profiles: initialProfiles, userId }: SwipeDe
       <AnimatePresence>
         <motion.div
           key={currentProfile.id}
-          style={{ x, rotate, zIndex: 10 }}
+          style={{ x, rotate, zIndex: 10, height: "68vh", minHeight: "480px" }}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.7}
@@ -122,7 +122,7 @@ export default function SwipeDeck({ profiles: initialProfiles, userId }: SwipeDe
           }
           transition={{ duration: 0.3 }}
           className="relative rounded-4xl overflow-hidden shadow-card-hover cursor-grab active:cursor-grabbing"
-          style={{ height: "68vh", minHeight: "480px" }}
+          
         >
           {/* Photo */}
           {currentProfile.photos?.[0] ? (
