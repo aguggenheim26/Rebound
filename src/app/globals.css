@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Brand palette */
+  --color-blush: #FF7B7B;
+  --color-peach: #FF9E57;
+  --color-cream: #FDF8F4;
+  --color-sand-light: #FAF4EC;
+  --color-text-primary: #2D1B0E;
+  --color-text-secondary: #7A5C48;
+  --color-text-muted: #B08C78;
+  --color-border: #EDD9C8;
+  --color-white: #FFFFFF;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #FFF5F5 0%, #FFF8F3 50%, #FDF8F4 100%);
+  --gradient-card: linear-gradient(180deg, transparent 40%, rgba(45, 27, 14, 0.85) 100%);
+  --gradient-brand: linear-gradient(135deg, #FF7B7B 0%, #FF9E57 100%);
+  --gradient-soft: linear-gradient(135deg, #FFE8E8 0%, #FFEEDD 100%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--color-cream);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  .gradient-soft {
+    background: var(--gradient-soft);
+  }
+  .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Swipe card styles */
+.swipe-card {
+  touch-action: none;
+  user-select: none;
+}
+
+/* Chat message bubble */
+.message-bubble-sent {
+  background: var(--gradient-brand);
+  color: white;
+  border-radius: 20px 20px 4px 20px;
+}
+
+.message-bubble-received {
+  background: var(--color-sand-light);
+  color: var(--color-text-primary);
+  border-radius: 20px 20px 20px 4px;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-blush);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+button, a {
+  cursor: pointer;
+}
