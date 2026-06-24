@@ -50,9 +50,9 @@ export default function ProfileEditForm({ profile, userId }: Props) {
       updated_at: new Date().toISOString(),
     };
 
-    const { error } = profile
-      ? await supabase.from("profiles").update(payload).eq("user_id", userId)
-      : await supabase.from("profiles").insert(payload);
+    const { error } = await supabase
+    .from("profiles")
+    .upsert(payload, { onConflict: "user_id" });
 
     if (error) {
       toast.error("Couldn't save changes: " + error.message);
